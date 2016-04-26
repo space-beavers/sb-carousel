@@ -1,0 +1,118 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<link rel="import" href="../iron-pages/iron-pages.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../paper-card/paper-card.html">
+
+<link rel="import" href="../neon-animation/neon-animated-pages.html">
+<link rel="import" href="../neon-animation/neon-animations.html">
+
+<!-- icons -->
+<link rel="import" href="../iron-icons/iron-icons.html">
+
+<!--
+Carousel used to swipe images
+
+Example:
+
+    <sb-carousel>
+      <sb-carousel-slide src="fish.jpg"></sb-carousel-slide>
+      <sb-carousel-slide src="dog.jpg">
+        <p>Slide Contents</p>
+      </sb-carousel-slide>
+    </sb-carousel>
+
+@demo demo/index.html
+@hero hero.svg
+-->
+
+<dom-module id="sb-carousel">
+  <template>
+    <style>
+      .swipe {
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+        cursor: default;
+      }
+    </style>
+
+    <neon-animated-pages class="carousel" selected="0">
+      <paper-card heading="one" image="http://placehold.it/350x150/FFC107/000000">
+        <div class="card-content">
+          one
+        </div>
+        <div class="card-actions">
+          <paper-button>Share</paper-button>
+          <paper-button>Explore!</paper-button>
+        </div>
+      </paper-card>
+      <paper-card heading="two" image="http://placehold.it/350x150/FFC107/000000">
+        <div class="card-content">
+          two
+        </div>
+        <div class="card-actions">
+          <paper-button>Share</paper-button>
+          <paper-button>Explore!</paper-button>
+        </div>
+      </paper-card>
+      <paper-card heading="three" image="http://placehold.it/350x150/FFC107/000000">
+        <div class="card-content">
+          three
+        </div>
+        <div class="card-actions">
+          <paper-button>Share</paper-button>
+          <paper-button>Explore!</paper-button>
+        </div>
+      </paper-card>
+    </neon-animated-pages>
+    <paper-button on-tap="_selectPrevious" class="previous-button">prev</paper-button>
+    <paper-button on-tap="_selectNext" class="next-button">next</paper-button>    
+  </template>
+
+  <script>
+    Polymer({
+      is: 'sb-carousel',
+
+      properties: {
+        /**
+         * Height of the carousel
+         */
+        height: {
+          type: Number,
+          value: 720
+        }
+      },
+
+      // Element Lifecycle
+
+      ready: function() {
+      },
+
+      attached: function() {
+        // `attached` fires once the element and its parents have been inserted
+        // into a document.
+        //
+        // This is a good place to perform any work related to your element's
+        // visual state or active behavior (measuring sizes, beginning animations,
+        // loading resources, etc).
+      },
+
+      detached: function() {
+        // The analog to `attached`, `detached` fires when the element has been
+        // removed from a document.
+        //
+        // Use this to clean up anything you did in `attached`.
+      },
+      _selectPrevious: function() {
+        var carouselSlides = document.querySelector('.carousel');
+        carouselSlides.selectPrevious();
+      },
+      _selectNext: function() {
+        var carouselSlides = document.querySelector('.carousel');
+        carouselSlides.selectNext();
+      }
+    });
+  </script>
+</dom-module>

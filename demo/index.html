@@ -1,0 +1,27 @@
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <title>sb-carousel Demo</title>
+    <script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="../sb-carousel.html">
+  </head>
+  <body unresolved>
+
+    <p>An example of <code>&lt;sb-carousel&gt;</code>:</p>
+
+    <sb-carousel height="100">
+      <sb-carousel-slide src="http://placekitten.com/1000/700"></sb-carousel-slide>
+      <sb-carousel-slide src="http://placekitten.com/1000/700">
+        <p>Content goes here</p>
+      </sb-carousel-slide>
+    </sb-carousel>
+
+    <script>
+      var seedElement = document.querySelector('sb-carousel');
+    </script>
+
+  </body>
+</html>
